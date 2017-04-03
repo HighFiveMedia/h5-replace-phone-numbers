@@ -54,18 +54,3 @@ function replacePhoneNumbers(options) {
         $(this).attr('href', $(this).attr('href') + "?source=" + source);
     });
 }
-
-
-function init() {
-
-    //here's an example
-    replacePhoneNumbers({
-        hrefOnly: true,
-        oldNumbers: ["18002735546"],
-        newNumbers: {
-            aw: "1234567890", //AdWords OKC
-            awt: "1234567890", //AdWords Tulsa
-            tf: "1234567890" //Toll Free
-        }
-    });
-}
