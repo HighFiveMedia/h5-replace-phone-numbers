@@ -11,7 +11,7 @@ function getParameterByName(name, url) {
 
 function replacePhoneNumbers(options) {
     var source = getParameterByName("source"),
-        selector = "",
+        selector = "a",
         oldNumbers = options.oldNumbers,
         newNumber = options.newNumbers[source],
         numberLinks,
@@ -23,14 +23,14 @@ function replacePhoneNumbers(options) {
 
     // get the phone number 'a' elements
     oldNumbers.forEach(function(oldNumber, index, array) {
-        selector += "a[href='tel:" + oldNumber + "']" + (index < array.length - 1 ? ", " : "");
+        selector += "[href='tel:" + oldNumber + "']";
     });
     numberLinks = $(selector);
-    selector = "";
+    selector = "a";
 
     // get the non phone number 'a' elements
     oldNumbers.forEach(function(oldNumber, index, array) {
-        selector += "a[href!='tel:" + oldNumber + "']" + (index < array.length - 1 ? ", " : "");
+        selector += "[href!='tel:" + oldNumber + "']";
     });
     otherLinks = $(selector);
 
