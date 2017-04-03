@@ -9,7 +9,7 @@ Make sure jQuery is included in the page. This tool also depends on the `getPara
 ### The URL 'source' parameter
 Example: thisisafakeurl.com/page1?source=mysource
 
-The source parameter determines which phone number will be used to replace the old.
+The function looks at the source parameter to determine which phone number to use to replace the old ones. This means that the destination URLs in the links on the source page must have the "?source=x" appended to them in order to cause the loaded page to display the phone numbers associated with "x". An AdWords text ad is an example of a source.
 
 ### options
 `oldNumbers` : An array of phone numbers to be replaced.
