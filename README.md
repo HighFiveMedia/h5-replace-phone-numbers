@@ -6,14 +6,16 @@ The purpose of this tool is to provide a way for pages linking to a site to dete
 ## Usage
 Make sure jQuery is included in the page. This tool also depends on the `getParameterByName` function at the top of script.js. Execute by invoking `replacePhoneNumbers` and passing in the appropriate options.
 
-### The URL 'source' parameter.
+### The URL 'source' parameter
 Example: thisisafakeurl.com/page1?source=mysource
 
 The source parameter determines which phone number will be used to replace the old.
 
 ### options
 `oldNumbers` : An array of phone numbers to be replaced.
+
 `newNumbers` : An object whose properties are the new phone numbers, indexed by the URL parameter they correspond to.
+
 `hrefOnly` : Boolean. If true, only the link destinations will be changed. Else, the text will be replaced as well.
 
 ### Example
