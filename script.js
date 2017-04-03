@@ -17,6 +17,9 @@ function replacePhoneNumbers(options) {
         numberLinks,
         otherLinks;
 
+    if(!source)
+        return;
+
     if(!jQuery) {
         throw "Error: jQuery missing";
     }
