@@ -34,6 +34,6 @@ replacePhoneNumbers({
 
 In the example, if the page loads with "?source=aw" at the end of the URL, then all `<a>` elements with the `href='tel:18002735546'` attribute will have that attribute replaced with `href='tel:1234567890'`.
 
-##TODO
+## TODO
 - Prevent situations where the parameters might stack. ie fakeurl.com/?source=aw?source=aw
 - Provide a way for certain elements to be exempt from modification. Maybe a class attribute?: 'h5-phone-exempt'
