@@ -40,3 +40,4 @@ In the example, if the page loads with "?source=aw" at the end of the URL, then 
 ## TODO
 - With `cascadeSourceParam` set to true, prevent situations where the parameters might stack. ie fakeurl.com/?source=aw?source=aw
 - Provide a way for certain elements to be exempt from modification. Maybe a class attribute?: 'h5-phone-exempt'
+- Allow custom name for URL param in case 'source' is taken
