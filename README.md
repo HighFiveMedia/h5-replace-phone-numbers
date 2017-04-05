@@ -16,7 +16,7 @@ The function looks at the URL 'source' parameter to determine which phone number
 
 `newNumbers` : An object whose properties are the new phone numbers, indexed by the URL parameter they correspond to.
 
-`hrefOnly` : Boolean. If true, only the link destinations will be changed. Else, the text will be replaced as well. Defaults to true.
+`hrefOnly` : Boolean. If true, only the link destinations will be changed. Else, the text will be replaced as well. Defaults to false.
 
 `cascadeSourceParam`: Boolean. If true, non-phone-number links on the page will have "?source=" appended to them, followed by the name of the current source. Defaults to false.
 
