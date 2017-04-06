@@ -18,7 +18,7 @@ The function looks at the URL 'source' parameter to determine which phone number
 
 `hrefOnly` : Boolean. If true, only the link destinations will be changed. Else, the text will be replaced as well. Defaults to false.
 
-`cascadeSourceParam`: Boolean. If true, non-phone-number links on the page will have "?source=" appended to them, followed by the name of the current source. Defaults to false.
+`permittedHrefs`: An array of href attributes to be ignored when appending source params to all links on the page.
 
 ### Example
 ```
@@ -31,13 +31,11 @@ replacePhoneNumbers({
         awt: "000000000", // AdWords Tulsa
         tf: "111111111" // Toll Free
     },
-    cascadeSourceParam: true
+    permittedHrefs: ["ignoreme.com"]
 });
 ```
 
-In the example, if the page loads with "?source=aw" at the end of the URL, then all `<a>` elements with the `href='tel:18002735546'` attribute will have that attribute replaced with `href='tel:1234567890'`. The displayed nummbers will not change. Other links on the page will have "?source=aw" appended to them.
+In the example, if the page loads with "?source=aw" at the end of the URL, then all `<a>` elements with the `href='tel:18002735546'` attribute will have that attribute replaced with `href='tel:1234567890'`. The displayed numbers will not change. Other links on the page will have "?source=aw" appended to them, unless they have the attribute `href='ignoreme.com'`.
 
 ## TODO
-- With `cascadeSourceParam` set to true, prevent situations where the parameters might stack. ie fakeurl.com/?source=aw?source=aw
-- Provide a way for certain elements to be exempt from modification. Maybe a class attribute?: 'h5-phone-exempt'
 - Allow custom name for URL param in case 'source' is taken

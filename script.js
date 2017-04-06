@@ -27,16 +27,17 @@ function replacePhoneNumbers(options) {
         return;
     }
 
-    // if specified, append source to all other links
-    if(options.cascadeSourceParam) {
-        selector = "a";
-        oldNumbers.forEach(function(oldNumber) {
-            selector += "[href!='tel:" + oldNumber + "']";
-        });
-        $(selector).each(function() {
-            $(this).attr('href', $(this).attr('href') + "?source=" + source);
-        });
-    }
+    // append source to all links besides those marked permitted
+    selector = "a";
+    options.permittedHrefs.forEach(function(href) {
+        selector += "[href!='" + href + "']";
+    });
+    $(selector).each(function() {
+        if($(this).length == 0 || $(this).attr('href').endsWith("?source=" + source)) {
+            return;
+        }
+        $(this).attr('href', $(this).attr('href') + "?source=" + source);
+    });
 
     // get the phone number 'a' elements
     selector = "";
@@ -47,7 +48,7 @@ function replacePhoneNumbers(options) {
 
     // replace the destination numbers
     numberLinks.each(function() {
-        $(this).attr('href', 'tel:' + newNumber.replace(/\s |(|)|-/g, ""));
+        $(this).attr('href', 'tel:' + newNumber.replace(/\s |(|)/g, "").replace(/-/g, ""));
     });
 
     // unless otherwise specified, replace the phone number text as well
