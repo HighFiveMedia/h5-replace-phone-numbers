@@ -39,3 +39,7 @@ In the example, if the page loads with "?source=aw" at the end of the URL, then 
 
 ## TODO
 - Allow custom name for URL param in case 'source' is taken
+- Bug: The whole thing may break when 'permittedHrefs' is weird.
+- Handle lazy loading. Something like $(document).bind('DOMNodeInserted', function(e) { ... }); Also look at this: http://api.jquery.com/on/
+- A "replaceAllPhones" bool that will mean...
+- Replace ONLY the phone number part of the element's text when hrefOnly is false.
