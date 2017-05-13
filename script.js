@@ -27,17 +27,25 @@ function replacePhoneNumbers(options) {
         return;
     }
 
+    if(!newNumber) {
+        console.error("A replacement number for the present source was not provided.");
+        return;
+    }
+
     // append source to all links besides those marked permitted
-    selector = "a";
-    options.permittedHrefs.forEach(function(href) {
-        selector += "[href!='" + href + "']";
-    });
-    $(selector).each(function() {
-        if($(this).length == 0 || $(this).attr('href').endsWith("?source=" + source)) {
+    selector = "a[href]";
+    if(options.permittedHrefs) {
+        options.permittedHrefs.forEach(function(href) {
+            selector += "[href!='" + href + "']";
+        });
+    }
+    $(selector).not("a[href^='tel']").each(function() {
+        if($(this).attr('href').endsWith("?source=" + source)) {
             return;
         }
         $(this).attr('href', $(this).attr('href') + "?source=" + source);
     });
+
 
     // get the phone number 'a' elements
     selector = "";
